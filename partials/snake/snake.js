@@ -8,36 +8,18 @@ var Snake = function(N, p) {
 }
 
 Snake.prototype.moves = function(moves) {
-    var currentMove = moves[0]
     var nextHead = this.positions[this.length-1].slice(0)
-    switch (currentMove) {
-        case 'D':
-            nextHead[0]++
-            break
-        case 'G':
-            nextHead[0]--
-            break
-        case 'H':
-            nextHead[1]--
-            break
-        case 'B':
-            nextHead[1]++
-            break
+    switch (moves[0]) {
+        case 'D': nextHead[0]++; break
+        case 'G': nextHead[0]--; break
+        case 'H': nextHead[1]--; break
+        case 'B': nextHead[1]++; break
     }
-    if (nextHead[0]>=0 && nextHead[1]>=0) {
-        var goodMove = true
-        for (var i = 0; i < this.length; i++) {
-            if (_.isEqual(nextHead, this.positions[i])) {
-                goodMove = false
-            }
-        }
-        if (goodMove) {
-            this.positions.push(nextHead)
-            this.positions = this.positions.slice(1)
-            this.moved ++
-        }
+    if (nextHead[0]>=0 && nextHead[1]>=0 && !R.contains(nextHead, this.positions)) {
+        this.positions.push(nextHead)
+        this.positions = this.positions.slice(1)
+        this.moved ++
     }
-
     if (moves.length == 1) {
         return this
     } else {
