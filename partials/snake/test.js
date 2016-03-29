@@ -14,12 +14,8 @@ describe('Snake', function() {
         it('http://www.isograd.com/FR/solutionconcours.php')
     })
     describe('- tests', function() {
-         
-        
         it('test using input1.txt and output1.txt', function () {
-            var snake = new Snake(3, 5)
-            snake.moves(['D','D','D','B','G'])
-            assert.deepEqual([5, 0], snake.tail())
+            assert.deepEqual([5, 0], snake(3, 5).moves(['D','D','D','B','G']).tail())
         })
         it('test using input2.txt and output2.txt', function () {
             var snake = new Snake(15, 25)

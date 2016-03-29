@@ -7,6 +7,10 @@ var Snake = function(N, p) {
     }
 }
 
+var snake = function(N, p) {
+    return new Snake(N, p)
+}
+
 Snake.prototype.moves = function(moves) {
     var nextHead = this.positions[this.length-1].slice(0)
     switch (moves[0]) {
