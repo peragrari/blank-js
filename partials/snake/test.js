@@ -4,6 +4,15 @@ describe('Snake', function() {
         it('http://www.isograd.com/FR/solutionconcours.php')
     })
     describe('- tests', function() {
+         it('test functional programming', function () {
+            var array = [
+                {name : "Maria", age : 23},
+                {name : "James", age : 23},
+                {name : "Maria", age : 29}]
+            console.log(array.filter(function(it){return it.name === 'Maria'}))
+            console.log(array.map(function(it){return it.name}))
+        })
+        
         it('test using input1.txt and output1.txt', function () {
             var snake = new Snake(3, 5)
             snake.moves(['D','D','D','B','G'])
